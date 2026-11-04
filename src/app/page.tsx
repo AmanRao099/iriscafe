@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <main id="top">
         {/* ───────── Hero ───────── */}
-        <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+        <section className="relative flex min-h-[100svh] w-full flex-col overflow-hidden">
           <Image
             src="/images/patio-evening.jpg"
             alt="Iris terrace in the evening, warm lights over tables and tropical plants"
@@ -24,9 +24,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/35 to-ink" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(14,12,9,0.7)_100%)]" />
 
-          <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-5 pb-16 md:px-10 md:pb-24">
+          <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-5 pt-28 pb-[max(3rem,env(safe-area-inset-bottom))] md:px-10 md:pb-24">
             <Reveal>
-              <div className="mb-8 h-24 w-24 rounded-full bg-ink/75 p-1 shadow-[0_0_60px_20px_rgba(14,12,9,0.55)] ring-1 ring-cream/10 backdrop-blur-sm md:h-28 md:w-28">
+              <div className="mb-6 h-20 w-20 rounded-full bg-ink/75 p-1 shadow-[0_0_60px_20px_rgba(14,12,9,0.55)] ring-1 ring-cream/10 backdrop-blur-sm sm:h-24 sm:w-24 md:mb-8 md:h-28 md:w-28">
                 <Image src="/brand/logo-badge.png" alt="Iris Café & Kitchen logo" width={496} height={496} priority className="h-full w-full" />
               </div>
               <p className="eyebrow mb-6">Café &amp; Kitchen · {cafe.area}</p>
@@ -37,15 +37,15 @@ export default function Home() {
               </h1>
             </Reveal>
             <Reveal delay={300}>
-              <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+              <div className="mt-8 flex flex-col gap-8 md:mt-10 md:flex-row md:items-end md:justify-between">
                 <p className="max-w-md text-base font-light leading-relaxed text-cream/80">
                   Greenery, warm light and slow evenings — from the first coffee of the morning to dinner under the lanterns.
                 </p>
-                <div className="flex gap-3">
-                  <a href="#menu" className="bg-cream px-7 py-4 text-[0.7rem] uppercase tracking-[0.25em] text-ink transition-colors duration-500 hover:bg-brass">
+                <div className="flex flex-wrap gap-3">
+                  <a href="#menu" className="bg-cream px-6 py-4 sm:px-7 text-[0.7rem] uppercase tracking-[0.25em] text-ink transition-colors duration-500 hover:bg-brass">
                     View menu
                   </a>
-                  <a href={cafe.phoneHref} className="border border-cream/40 px-7 py-4 text-[0.7rem] uppercase tracking-[0.25em] transition-colors duration-500 hover:border-cream">
+                  <a href={cafe.phoneHref} className="border border-cream/40 px-6 py-4 sm:px-7 text-[0.7rem] uppercase tracking-[0.25em] transition-colors duration-500 hover:border-cream">
                     Book a table
                   </a>
                 </div>
@@ -144,7 +144,7 @@ export default function Home() {
 
         {/* ───────── Menu ───────── */}
         <section id="menu" className="mx-auto max-w-[1400px] scroll-mt-20 px-5 py-28 md:px-10 md:py-40">
-          <div className="grid gap-16 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <div className="lg:sticky lg:top-32">
                 <Reveal>

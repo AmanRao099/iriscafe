@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Iris Café & Kitchen
 
-## Getting Started
+Landing site for Iris Café & Kitchen, JP Nagar, Bengaluru. Next.js 15 (App Router) + Tailwind CSS 4, fully static.
 
-First, run the development server:
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Check before deploying
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run build      # must finish with every route marked ○ (Static)
+npm start          # serve the production build locally
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+**Vercel (recommended):** import the repo at vercel.com/new. The defaults work as they are (framework Next.js, build `npm run build`). Then add the `iriscafe.in` domain under Project → Settings → Domains.
 
-To learn more about Next.js, take a look at the following resources:
+**Any Node host:** `npm ci && npm run build && npm start` (Node 18.18+; set `PORT` if needed).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+No environment variables are required.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content
 
-## Deploy on Vercel
+All copy, menu items, prices, hours, links and gallery images live in `src/lib/data.ts`. Images are in `public/images`, and `next/image` serves them as AVIF/WebP.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The production URL (`https://iriscafe.in`) is set in `cafe.website` and `metadataBase` in `src/app/layout.tsx`. It drives the canonical URL, Open Graph tags, `robots.txt`, `sitemap.xml` and the schema.org JSON-LD. Update both if the domain changes.
